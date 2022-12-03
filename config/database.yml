@@ -24,6 +24,11 @@ default: &default
 development:
   <<: *default
   database: reporting_dash_development
+  username: database_dev_user
+  password:
+  adapter: postgresql
+  encoding: utf8
+  pool: 5
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
