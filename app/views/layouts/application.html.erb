@@ -1,16 +1,33 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ReportingDash</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Reporting Dashboard</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+  <nav class=" navbar-fixed cyan lighten-3 flat m4" style="margin-bottom: 2%;">
+    <div class="nav-wrapper">
+      <a href="<%= events_url %>" class="brand-logo"><i style="font-size:50px;" class=" large material-icons blue-grey-text">event</i><span class="blue-grey-text">Events </span><span class="light-blue-text">Board</span></a>
+
+    </div>
+    <div class="nav-content">
+      <span class="nav-title"></span>
+      <% if params[:action] != 'dashboard' %>
+      <a href="<%= dashboard_url %>" class="btn-floating btn-large halfway-fab waves-effect waves-light light-blue">
+        <i class="material-icons">dashboard</i>
+      </a>
+        <% end %>
+      <% if params[:action] == 'dashboard' %>
+      <a href="<%= new_event_url %>" class="btn-floating btn-large halfway-fab waves-effect waves-light">
+        <i class="material-icons">add</i>
+      </a>
+        <% end %>
+    </div>
+  </nav>
     <%= yield %>
   </body>
 </html>
