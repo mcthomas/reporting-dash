@@ -1,13 +1,15 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  desc: MyString
-  when: MyString
-  where: MyString
+  channel: MyString
+  name: MyString
+  structure: MyString
+  tone: MyString
+  action: MyString
 
 two:
-  title: MyString
-  desc: MyString
-  when: MyString
-  where: MyString
+  channel: MyString
+  name: MyString
+  structure: MyString
+  tone: MyString
+  action: MyString
