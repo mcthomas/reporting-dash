@@ -18,12 +18,12 @@
     <div class="nav-content">
       <span class="nav-title"></span>
       <% if params[:action] != 'dashboard' %>
-      <a href="<%= dashboard_url %>" class="btn-floating btn-large halfway-fab waves-effect waves-light purple">
+      <a href="<%= dashboard_url %>" class="btn-floating btn-large halfway-fab waves-effect waves-light purple darken-4">
         <i class="material-icons">edit</i>
       </a>
         <% end %>
       <% if params[:action] == 'dashboard' %>
-      <a href="<%= new_event_url %>" class="btn-floating btn-large halfway-fab waves-effect waves-light">
+      <a href="<%= new_event_url %>" class="btn-floating btn-large halfway-fab waves-effect waves-light green darken-1">
         <i class="material-icons">add</i>
       </a>
         <% end %>

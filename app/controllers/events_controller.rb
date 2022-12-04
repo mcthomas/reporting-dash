@@ -56,9 +56,9 @@ class EventsController < ApplicationController
 
   def set_ui_variables
     @col_classes = ['col s7 m3', 'col s5 m4', 'col s12 m5']
-    card = 'card lighten-2 hoverable'
+    card = 'card hoverable'
     @card_classes = [" #{card} red", "#{card} orange", "#{card} green", "#{card} blue",
-                     "#{card} purple", "#{card} indigo", "#{card} cyan"]
+                     "#{card} purple", "#{card} indigo", "#{card} brown"]
   end
 
 end
