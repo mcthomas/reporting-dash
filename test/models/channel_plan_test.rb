@@ -1,6 +1,6 @@
 require "test_helper"
 
-class ChannelPlansControllerTest < ActionDispatch::IntegrationTest
+class ChannelPlanTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

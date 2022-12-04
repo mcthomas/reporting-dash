@@ -1,0 +1,28 @@
+<div class="container">
+<table class="responsive-table highlight">
+  <thead>
+  <tr>
+    <th>Channel</th>
+    <th>Name</th>
+    <th>Structure</th>
+    <th>Tone</th>
+    <th>Desired Action</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @channelplans.each_with_index do |channelplan, index|%>
+  <tr>
+    <td><span class="truncate" style="display: inline-block; width: 130px;"><%=channelplan.channel %></span></td>
+    <td ><span class="truncate" style="display: inline-block; width: 130px;"><%=channelplan.name %></span></td>
+    <td ><span class="truncate" style="display: inline-block; width: 130px;"><%=channelplan.structure %></span></td>
+    <td ><span class="truncate" style="display: inline-block; width: 130px;"><%=channelplan.tone %></span></td>
+    <td ><span class="truncate" style="display: inline-block; width: 130px;"><%=channelplan.action %></span></td>
+    <td><%= link_to "edit", edit_channelplan_path(channelplan),class:'btn btn-small yellow darken-2' %></td>
+    <td><%= button_to "delete",channelplan_path(channelplan), method: :delete, form: {data: {turbo_confirm: "Are you sure you want to delete this channel plan?"}}, class:"btn btn-small red" %></td>
+  </tr>
+    <%end %>
+  </tbody>
+</table>
+
+</div>

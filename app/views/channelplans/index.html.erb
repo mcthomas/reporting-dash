@@ -1,6 +1,6 @@
 <div >
 
-      <% @events.each_with_index do |event, index|%>
+      <% @channelplans.each_with_index do |channelplan, index|%>
   <% if index %3 == 0 %>
     <div class="row">
     <%end %>
@@ -9,21 +9,21 @@
             <div class="card-content white-text">
             <span class="card-title"><strong><u>Channel Plan</u></strong></span><br>
               <span class="card-title"><i>Channel:</i></span>
-              <p><%= event.channel%></p><br>
+              <p><%= channelplan.channel%></p><br>
               <span class="card-title"><i>Name:</i></span>
-              <p><%= event.name %></p><br>
+              <p><%= channelplan.name %></p><br>
               <div class="row">
                 <div class="col s12 m12">
                 <span class="card-title"><i>Structure:</i></span>
-                  <p><%= event.structure %></p><br>
+                  <p><%= channelplan.structure %></p><br>
                 </div>
                 <div class="col s12 m12">
                 <span class="card-title"><i>Tone:</i></span>
-                  <p><%= event.tone %></p><br>
+                  <p><%= channelplan.tone %></p><br>
                 </div>
                 <div class="col s12 m12">
                 <span class="card-title"><i>Desired Action:</i></span>
-                  <p><%= event.action %></p>
+                  <p><%= channelplan.action %></p>
                 </div>
               </div>
             </div>

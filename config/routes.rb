@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'events/dashboard' => 'events#dashboard', :as => :dashboard
-  resources :events
-  root "events#index"
+  get 'channelplans/dashboard' => 'channelplans#dashboard', :as => :dashboard
+  resources :channelplans
+  root "channelplans#index"
 end

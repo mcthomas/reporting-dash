@@ -1,0 +1,2 @@
+class ChannelPlan < ApplicationRecord
+end
