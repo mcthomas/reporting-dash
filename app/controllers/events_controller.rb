@@ -49,7 +49,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:title, :desc, :when, :where)
+    params.require(:event).permit(:channel, :name, :structure, :tone, :action)
   end
 
   private
@@ -57,8 +57,8 @@ class EventsController < ApplicationController
   def set_ui_variables
     @col_classes = ['col s7 m3', 'col s5 m4', 'col s12 m5']
     card = 'card lighten-2 hoverable'
-    @card_classes = [" #{card} red", "#{card} light-blue", "#{card} teal", "#{card} blue",
-                     "#{card} brown", "#{card} indigo", "#{card} cyan"]
+    @card_classes = [" #{card} red", "#{card} orange", "#{card} green", "#{card} blue",
+                     "#{card} purple", "#{card} indigo", "#{card} cyan"]
   end
 
 end

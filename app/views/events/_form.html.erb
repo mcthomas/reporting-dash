@@ -7,30 +7,30 @@
           <div class="row">
             <div class="input-field col s6">
               <i class="material-icons prefix red-text">linear_scale</i>
-              <%= f.text_field :title %>
+              <%= f.text_field :channel %>
               <label class="active" for="title"> <%= f.label :channel %></label>
             </div>
           <div class="row">
             <div class="input-field col s6">
             <i class="material-icons prefix orange-text">fingerprintk</i>
-              <%= f.text_area :title, class: 'materialize-textarea' %>
+              <%= f.text_area :name, class: 'materialize-textarea' %>
               <label class="active" for="title"> <%= f.label :name %></label>
             </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
                 <i class="material-icons prefix green-text">group_work</i>
-                <%= f.text_field :desc %>
+                <%= f.text_field :structure %>
                 <label class="active" for="title">  <%= f.label :structure %></label>
               </div>
               <div class="input-field col s12">
                 <i class="material-icons prefix blue-text">record_voice_over</i>
-                <%= f.text_field :desc %>
+                <%= f.text_field :tone %>
                 <label class="active" for="title">  <%= f.label :tone %></label>
               </div>
                 <div class="input-field col s12">
                 <i class="material-icons prefix purple-text">gps_fixed</i>
-                <%= f.text_field :desc %>
+                <%= f.text_field :action %>
               <label class="active" for="title">  <%= f.label :'Desired action' %></label>
             </div>
             </div>

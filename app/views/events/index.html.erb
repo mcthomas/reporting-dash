@@ -7,16 +7,16 @@
         <div class="<%= @col_classes[index %3 ] %>">
           <div class="<%= @card_classes[rand(0...@card_classes.length)] %>">
             <div class="card-content white-text">
-              <span class="card-title"><strong><%= event.title%></strong></span>
-              <p><%= event.desc %></p>
+              <span class="card-title"><strong><%= event.channel%></strong></span>
+              <p><%= event.name %></p>
               <div class="row">
                 <div class="col s12 m12">
                   <span class="card-title"> <i  class="material-icons">date_range </i>When ?</span>
-                  <p><%= event.when %></p>
+                  <p><%= event.structure %></p>
                 </div>
                 <div class="col s12 m12">
                   <span class="card-title"><i class="material-icons">location_on </i>Where ?</span>
-                  <p><%= event.where %></p>
+                  <p><%= event.tone %></p>
                 </div>
               </div>
             </div>
