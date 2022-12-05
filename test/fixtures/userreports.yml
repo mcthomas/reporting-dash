@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  users: 1
+  usersactive: 1
+  usersinactive: 1
+  usersvalidated: 1
+  usersnotvalidated: 1
+
+two:
+  users: 1
+  usersactive: 1
+  usersinactive: 1
+  usersvalidated: 1
+  usersnotvalidated: 1

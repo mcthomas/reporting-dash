@@ -3,7 +3,7 @@ class ChannelplansController < ApplicationController
   def index
     set_ui_variables
     @channelplans = Channelplan.all
-
+    @userreports = Userreport.all
   end
 
   def new
@@ -12,6 +12,7 @@ class ChannelplansController < ApplicationController
 
   def dashboard
     @channelplans = Channelplan.all
+    @userreports = Userreport.all
   end
 
   def show
