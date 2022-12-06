@@ -1,26 +1,26 @@
-class UserreportsController < ApplicationController
+class Elgibilitylist < ApplicationController
   
     def index
       set_ui_variables
-      @userreports = Userreport.all
-  
+      @elbilitylists = Elgibilitylist.all
     end
   
     def new
-      @userreport = Userreport.new
+      @elgibilitylist = Elgibilitylist.new
+      @elgibilitylist.entrys.build
     end
   
     def dashboard
-      #@userreports = Userreport.all
+      @elgibilitylists = Elgibilitylist.all
     end
   
     def show
-      @userreport = Userreport.find(params[:id])
+      @elgibilitylist = Elgibilitylist.find(params[:id])
     end
   
     def update
-      @userreport = Userreport.find(params[:id])
-      if @userreport.update(userreport_params)
+      @elgibilitylist = Elgibilitylist.find(params[:id])
+      if @elgibilitylist.update(elgibilitylist_params)
         redirect_to dashboard_path
       else
         render 'edit'
@@ -28,18 +28,18 @@ class UserreportsController < ApplicationController
     end
   
     def edit
-      @userreport = Userreport.find(params[:id])
+      @elgibilitylist = Elgibilitylist.find(params[:id])
     end
   
     def destroy
-      @userreport = Userreport.find(params[:id])
-      @userreport.destroy
+      @elgibilitylist = Elgibilitylist.find(params[:id])
+      @elgibilitylist.destroy
       redirect_to dashboard_path
     end
   
     def create
-      @userreport = Userreport.new(userreport_params)
-      if @userreport.save
+      @elgibilitylist = Elgibilitylist.new(elgibilitylist_params)
+      if @elgibilitylist.save
         redirect_to channelplans_path
       else
         render 'new'
@@ -48,8 +48,8 @@ class UserreportsController < ApplicationController
   
     private
   
-    def userreport_params
-      params.require(:userreport).permit(:users, :usersactive, :usersinactive, :usersvalidated, :usersnotvalidated)
+    def elgibilitylist_params
+        params.require(:elgibilitylist).permit(:title, entrys_attributes: [:check, :date])
     end
   
     private

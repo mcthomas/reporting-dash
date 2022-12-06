@@ -13,6 +13,7 @@ class ChannelplansController < ApplicationController
   def dashboard
     @channelplans = Channelplan.all
     @userreports = Userreport.all
+    @elgibilitylists = Elgibilitylist.all
   end
 
   def show
