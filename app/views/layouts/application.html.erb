@@ -22,14 +22,6 @@
         <i class="material-icons">edit</i>
       </a>
         <% end %>
-      <% if params[:action] == 'dashboard' %>
-      <a href="<%= new_channelplan_url %>" class="btn-floating btn-small halfway-fab waves-effect waves-light green darken-1">
-        <i class="material-icons">add</i>
-      </a>
-      <a href="<%= new_userreport_url %>" style="margin-bottom: -75px" class="btn-floating btn-small halfway-fab waves-effect waves-light green darken-1">
-        <i class="material-icons">add</i>
-      </a>
-        <% end %>
     </div>
   </nav>
     <%= yield %>

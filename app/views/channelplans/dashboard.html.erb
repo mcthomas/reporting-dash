@@ -9,7 +9,7 @@
     <th>Desired Action</th>
   </tr>
   </thead>
-  <h5><u class="purple-text">Channel Plans</u></h1>
+  <h5><u class="purple-text">Channel Plans</u></h5>
   <tbody>
   <% @channelplans.each_with_index do |channelplan, index|%>
   <tr>
@@ -24,6 +24,10 @@
     <%end %>
   </tbody>
 </table>
+<br>
+<a href="<%= new_channelplan_url %>" class="btn-small waves-effect waves-light green darken-1">
+        <i class="material-icons">add</i>
+      </a>
 <br><br><br>
 <table class="responsive-table highlight">
   <thead>
@@ -35,7 +39,7 @@
     <th>Users Not Validated</th>
   </tr>
   </thead>
-  <h5><u class="purple-text">User Reports</u></h1>
+  <h5><u class="purple-text">User Reports</u></h5>
   <tbody>
 <% @userreports.each_with_index do |userreport, index|%>
   <tr>
@@ -50,5 +54,9 @@
   <%end %>
   </tbody>
 </table>
+<br>
+<a href="<%= new_userreport_url %>" class="btn-small waves-effect waves-light green darken-1">
+        <i class="material-icons">add</i>
+      </a>
 
 </div>
