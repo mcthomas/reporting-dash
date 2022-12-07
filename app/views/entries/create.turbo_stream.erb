@@ -1,0 +1,15 @@
+<%= fields model: @elgibilitylist do |form| %>
+    <%= form.fields_for :entries, child_index: params[:index] do |entry_form| %>
+      <%= turbo_stream.replace "add-entry" do %>
+        <%= form.submit "Add entry", 
+              formaction: entry_path(entry_form.index.to_i + 1), 
+              formmethod: :post, 
+              formnovalidate: true, 
+              id: "add-entry" %>
+      <% end %>
+  
+      <%= turbo_stream.append "entries" do %>
+        <%= render "form", form: entry_form %>
+      <% end %>
+    <% end %>
+  <% end %>

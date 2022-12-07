@@ -1,49 +1,35 @@
-<div class="container">
-  <%= form_for @elgibilitylist do |f| %>
-    <div class="row">
-    <div class="col s12">
-      <div class="card grey lighten-3">
-        <div class="card-content white-text">
-          <div class="row">
-            <div class="input-field col s12">
-              <i class="material-icons prefix purple-text">group</i>
-              <%= f.text_field :users %>
-              <label class="active" for="title"> <%= f.label :users %></label>
-            </div>
-            </div>
-          <div class="row">
-            <div class="input-field col s6">
-            <i class="material-icons prefix green-text">verified_user</i>
-              <%= f.text_area :usersactive, class: 'materialize-textarea' %>
-              <label class="active" for="title"> <%= f.label :'users active' %></label>
-            </div>
-            <div class="row">
-              <div class="input-field col s6">
-                <i class="material-icons prefix red-text">indeterminate_check_box</i>
-                <%= f.text_field :usersinactive %>
-                <label class="active" for="title">  <%= f.label :'users inactive' %></label>
-              </div>
-              </div>
-              <div class="input-field col s6">
-                <i class="material-icons prefix green-text">person</i>
-                <%= f.text_field :usersvalidated %>
-                <label class="active" for="title">  <%= f.label :'users validated' %></label>
-              </div>
-                <div class="input-field col s6">
-                <i class="material-icons prefix red-text">person_outline</i>
-                <%= f.text_field :usersnotvalidated %>
-              <label class="active" for="title">  <%= f.label :'users not validated' %></label>
-            </div>
-            </div>
-            <div class="row">
-              <div class="col s5"></div>
-              <div class="col s5"><%= f.submit :'Save User Report', class:"btn btn-default", class: 'btn-large light-blue'%></div>
-              <div class="col s4"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+<%= form_with(model: @elgibilitylist) do |form| %>
+  <% if @elgibilitylist.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(elgibilitylist.errors.count, "error") %> prohibited this elgibilitylist from being saved:</h2>
+
+      <ul>
+        <% elgibilitylist.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
     </div>
   <% end %>
-</div>
+
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <h4>Entries</h4>
+  <div id="entries">
+    <%= form.fields_for :entries do |entry_form| %>
+      <%= render "entries/form", form: entry_form %>
+    <% end %>
+  </div>
+
+  <%= form.submit "Add entry", 
+      formaction: entry_path(@elgibilitylist.entries.size), 
+      formmethod: :post, 
+      formnovalidate: true, 
+      id: "add-entry" %>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_06_053718) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_07_005729) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -28,6 +28,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_053718) do
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "entry_id"
+    t.index ["entry_id"], name: "index_elgibilitylists_on_entry_id"
+  end
+
+  create_table "entries", force: :cascade do |t|
+    t.string "scenario"
+    t.boolean "check"
+    t.string "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "elgibilitylist_id"
+    t.index ["elgibilitylist_id"], name: "index_entries_on_elgibilitylist_id"
   end
 
   create_table "userreports", force: :cascade do |t|
@@ -40,4 +52,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_053718) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "elgibilitylists", "entries"
 end

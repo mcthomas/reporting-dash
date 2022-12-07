@@ -1,0 +1,15 @@
+<%= turbo_frame_tag "entry_#{form.index}" do %>
+<%= form.hidden_field :id %>
+
+<div>
+  <%= form.label :check, style: "display: block" %>
+  <%= form.text_field :date %>
+</div>
+
+<%= form.submit "destroy entry", 
+formaction: entry_path(form.index, form.object.id), 
+formmethod: :delete, 
+formnovalidate: true, 
+data: { turbo_frame: "entry_#{form.index}" } %>
+
+<% end %>

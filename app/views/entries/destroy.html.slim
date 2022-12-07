@@ -1,0 +1,8 @@
+<%= fields model: @elgibilitylist do |form| %>
+  <%= form.fields_for :entries, child_index: params[:index] do |entry_form| %>
+    <%= turbo_frame_tag "entry_#{entry_form.index}" do %>
+      <%= entry_form.hidden_field :id, value: params[:id] %>
+      <%= entry_form.hidden_field :_destroy, value: true %>
+    <% end %>
+  <% end %>
+<% end %>

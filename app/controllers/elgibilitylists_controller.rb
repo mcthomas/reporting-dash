@@ -1,13 +1,12 @@
-class Elgibilitylist < ApplicationController
+class ElgibilitylistsController < ApplicationController
   
     def index
       set_ui_variables
-      @elbilitylists = Elgibilitylist.all
+      @elgibilitylists = Elgibilitylist.all
     end
   
     def new
-      @elgibilitylist = Elgibilitylist.new
-      @elgibilitylist.entrys.build
+      @elgibilitylist = Elgibilitylist.new(entries: [Entry.new])
     end
   
     def dashboard
@@ -40,7 +39,7 @@ class Elgibilitylist < ApplicationController
     def create
       @elgibilitylist = Elgibilitylist.new(elgibilitylist_params)
       if @elgibilitylist.save
-        redirect_to channelplans_path
+        redirect_to entries_path
       else
         render 'new'
       end
@@ -49,7 +48,7 @@ class Elgibilitylist < ApplicationController
     private
   
     def elgibilitylist_params
-        params.require(:elgibilitylist).permit(:title, entrys_attributes: [:check, :date])
+        params.require(:elgibilitylist).permit(:title, entries_attributes: [:check, :date])
     end
   
     private
