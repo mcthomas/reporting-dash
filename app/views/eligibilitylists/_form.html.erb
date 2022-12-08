@@ -134,8 +134,11 @@
                                 </div>
                               <div class="input-field col s12">
                                 <i class="material-icons prefix blue-text">assignment_ind</i>
-                                  <%= f.text_area :assign, value: @user, class: 'materialize-textarea' %>
-                                <label class="active" for="title"> <%= f.label :'assign to (leave blank to assign to yourself)' %></label>
+                                  <% if @eligibilitylist.assign != nil %>
+                                      <%= f.text_area :assign, value: @eligibilitylist.assign, class: 'materialize-textarea' %>
+                                  <% else %>
+                                      <%= f.text_area :assign, value: @user, class: 'materialize-textarea' %>
+                                  <% end %>                                <label class="active" for="title"> <%= f.label :'assign to' %></label>
                               </div>
             <div class="row">
               <div class="col s5"></div>

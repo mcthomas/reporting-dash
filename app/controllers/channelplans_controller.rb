@@ -24,6 +24,7 @@ class ChannelplansController < ApplicationController
 
   def show
     @channelplan = Channelplan.find(params[:id])
+    @user = current_user.email
   end
 
   def update
@@ -37,6 +38,7 @@ class ChannelplansController < ApplicationController
 
   def edit
     @channelplan = Channelplan.find(params[:id])
+    @user = current_user.email
   end
 
   def destroy
