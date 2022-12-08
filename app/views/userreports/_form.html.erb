@@ -1,11 +1,17 @@
+<body style="background-color:#C0C0C0;">
 <div class="container">
   <%= form_for @userreport do |f| %>
     <div class="row">
     <div class="col s12">
       <div class="card grey lighten-3">
         <div class="card-content white-text">
-          <div class="row">
-            <div class="input-field col s12">
+        <div class="row">
+            <div class="input-field col s6">
+              <i class="material-icons prefix purple-text">label</i>
+              <%= f.text_field :title %>
+              <label class="active" for="title"> <%= f.label :title %></label>
+            </div>
+            <div class="input-field col s6">
               <i class="material-icons prefix purple-text">group</i>
               <%= f.text_field :users %>
               <label class="active" for="title"> <%= f.label :users %></label>
@@ -47,3 +53,4 @@
     </div>
   <% end %>
 </div>
+</body>

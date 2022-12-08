@@ -1,3 +1,4 @@
+<body style="background-color:#C0C0C0;">
 <div >
 
       <% @channelplans.each_with_index do |channelplan, index|%>
@@ -34,8 +35,6 @@
     </div>
   <%end %>
       <% end %>
-</div>
-
 
 <% @userreports.each_with_index do |userreport, index|%>
   <% if index %3 == 0 %>
@@ -60,15 +59,15 @@
                       ['Users Validated', <%= userreport.usersvalidated%> ],
                       ['Users Not Validated', <%= userreport.usersnotvalidated%> ]
                     ]);
-                    var options = {'title':'',
+                    var options = {'title':'<%= userreport.title%>',
                                   'width':350,
                                   'height':500,
                                   'legend':{position: 'none'}};
-                    var chart = new google.visualization.ColumnChart(document.getElementById("<%= index %>"));
+                    var chart = new google.visualization.ColumnChart(document.getElementById("UR<%= index %>"));
                     chart.draw(data, options);
                   }
                 </script>
-              <div id="<%= index %>"></div>
+              <div id="UR<%= index %>"></div>
             </div>
           </div>
         </div>
@@ -76,4 +75,49 @@
     </div>
   <%end %>
       <% end %>
+
+<% @eligibilitylists.each_with_index do |eligibilitylist, index|%>
+  <% if index %3 == 0 %>
+    <div class="row">
+    <%end %>
+        <div class="<%= @col_classes[index %3 ] %>">
+          <div class="<%= @card_classes[rand(0...@card_classes.length)] %>" style="width: 400px">
+            <div class="card-content white-text">
+            <span class="card-title"><strong><u>Eligibility List</u></strong></span><br>
+              <p class="black-text" style="background-color: white"><%= eligibilitylist.title%></p>
+              <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+              <script type="text/javascript">
+                google.charts.load('current', {'packages':['table']});
+                google.charts.setOnLoadCallback(drawTable);
+
+                function drawTable() {
+                  var data = new google.visualization.DataTable();
+                  data.addColumn('string', 'Scenario');
+                  data.addColumn('boolean', '✓ or x');
+                  data.addRows([
+                    ['<%= eligibilitylist.q1%>', <%= eligibilitylist.a1%>],
+                    ['<%= eligibilitylist.q2%>', <%= eligibilitylist.a2%>],
+                    ['<%= eligibilitylist.q3%>', <%= eligibilitylist.a3%>],
+                    ['<%= eligibilitylist.q4%>', <%= eligibilitylist.a4%>],
+                    ['<%= eligibilitylist.q5%>', <%= eligibilitylist.a5%>],
+                    ['<%= eligibilitylist.q6%>', <%= eligibilitylist.a6%>],
+                    ['<%= eligibilitylist.q7%>', <%= eligibilitylist.a7%>],
+                    ['<%= eligibilitylist.q8%>', <%= eligibilitylist.a8%>],
+                    ['<%= eligibilitylist.q9%>', <%= eligibilitylist.a9%>],
+                    ['<%= eligibilitylist.q10%>', <%= eligibilitylist.a10%>]
+                  ]);
+                  var table = new google.visualization.Table(document.getElementById("EL<%= index %>"));
+
+                  table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+                }
+              </script>
+              <div class="black-text" id="EL<%= index %>"></div>
 </div>
+</div>
+</div>
+<% if index %3 == 2 %>
+</div>
+<%end %>
+<% end %>
+</div>
+</body>

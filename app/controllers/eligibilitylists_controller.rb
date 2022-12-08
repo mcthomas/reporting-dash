@@ -1,26 +1,26 @@
-class UserreportsController < ApplicationController
+class EligibilitylistsController < ApplicationController
   
     def index
       set_ui_variables
-      @userreports = Userreport.all
+      @eligibilitylists = Eligibilitylist.all
   
     end
   
     def new
-      @userreport = Userreport.new
+      @eligibilitylist = Eligibilitylist.new
     end
   
     def dashboard
-      @userreports = Userreport.all
+      @eligibilitylists = Eligibilitylist.all
     end
   
     def show
-      @userreport = Userreport.find(params[:id])
+      @eligibilitylist = Eligibilitylist.find(params[:id])
     end
   
     def update
-      @userreport = Userreport.find(params[:id])
-      if @userreport.update(userreport_params)
+      @eligibilitylist = Eligibilitylist.find(params[:id])
+      if @eligibilitylist.update(userreport_params)
         redirect_to dashboard_path
       else
         render 'edit'
@@ -28,18 +28,18 @@ class UserreportsController < ApplicationController
     end
   
     def edit
-      @userreport = Userreport.find(params[:id])
+      @eligibilitylist = Eligibilitylist.find(params[:id])
     end
   
     def destroy
-      @userreport = Userreport.find(params[:id])
-      @userreport.destroy
+      @eligibilitylist = Eligibilitylist.find(params[:id])
+      @eligibilitylist.destroy
       redirect_to dashboard_path
     end
   
     def create
-      @userreport = Userreport.new(userreport_params)
-      if @userreport.save
+      @eligibilitylist = Eligibilitylist.new(userreport_params)
+      if @eligibilitylist.save
         redirect_to channelplans_path
       else
         render 'new'
@@ -49,7 +49,7 @@ class UserreportsController < ApplicationController
     private
   
     def userreport_params
-      params.require(:userreport).permit(:title :users, :usersactive, :usersinactive, :usersvalidated, :usersnotvalidated)
+      params.require(:eligibilitylist).permit(:title, :q1, :q2, :q3, :q4, :q5, :q6, :q7, :q8, :q9, :q10, :a1, :a2, :a3, :a4, :a5, :a6, :a7, :a8, :a9, :a10)
     end
   
     private

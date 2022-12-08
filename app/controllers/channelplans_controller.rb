@@ -4,6 +4,7 @@ class ChannelplansController < ApplicationController
     set_ui_variables
     @channelplans = Channelplan.all
     @userreports = Userreport.all
+    @eligibilitylists = Eligibilitylist.all
   end
 
   def new
@@ -13,6 +14,7 @@ class ChannelplansController < ApplicationController
   def dashboard
     @channelplans = Channelplan.all
     @userreports = Userreport.all
+    @eligibilitylists = Eligibilitylist.all
   end
 
   def show

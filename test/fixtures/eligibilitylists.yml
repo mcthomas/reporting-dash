@@ -1,0 +1,49 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  q1: MyString
+  q2: MyString
+  q3: MyString
+  q4: MyString
+  q5: MyString
+  q6: MyString
+  q7: MyString
+  q8: MyString
+  q9: MyString
+  q10: MyString
+  string: MyString
+  a1: false
+  a2: false
+  a3: false
+  a4: false
+  a5: false
+  a6: false
+  a7: false
+  a8: false
+  a9: false
+  a10: false
+
+two:
+  title: MyString
+  q1: MyString
+  q2: MyString
+  q3: MyString
+  q4: MyString
+  q5: MyString
+  q6: MyString
+  q7: MyString
+  q8: MyString
+  q9: MyString
+  q10: MyString
+  string: MyString
+  a1: false
+  a2: false
+  a3: false
+  a4: false
+  a5: false
+  a6: false
+  a7: false
+  a8: false
+  a9: false
+  a10: false
