@@ -45,6 +45,13 @@ class EligibilitylistsController < ApplicationController
         render 'new'
       end
     end
+
+    def import
+      file = params[:file]
+      return redirect_to elgibilitylists_path, notice: 'File format must be .csv' unless file.content_type == 'text/csv'
+      CsvImportEligibilitylistsService.new.call(file)
+      redirect_to dashboard_path, notice: 'Elgibility List(s) imported!'
+    end
   
     private
   
