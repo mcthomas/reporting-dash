@@ -49,7 +49,7 @@ class UserreportsController < ApplicationController
     private
   
     def userreport_params
-      params.require(:userreport).permit(:title :users, :usersactive, :usersinactive, :usersvalidated, :usersnotvalidated)
+      params.require(:userreport).permit(:title, :users, :usersactive, :usersinactive, :usersvalidated, :usersnotvalidated)
     end
   
     private
