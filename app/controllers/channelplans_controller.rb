@@ -1,4 +1,6 @@
 class ChannelplansController < ApplicationController
+
+  before_action :authenticate_user!
   
   def index
     set_ui_variables
