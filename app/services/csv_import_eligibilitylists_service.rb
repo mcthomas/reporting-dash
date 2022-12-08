@@ -2,7 +2,7 @@ class CsvImportEligibilitylistsService < ApplicationController
    require 'csv'
    def call(file)
      file = File.open(file)
-     csv = CSV.parse(file, headers: true, col_sep: ';')
+     csv = CSV.parse(file, headers: true, col_sep: ',')
      csv.each do |row|
        eligibilitylist_hash = {}
        eligibilitylist_hash[:title] = row['Title']
