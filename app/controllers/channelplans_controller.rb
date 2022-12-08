@@ -1,17 +1,19 @@
 class ChannelplansController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :check_access, :only => [:new, :edit, :destroy]
+  before_action :check_access, :only => [:new, :destroy]
   
   def index
     set_ui_variables
     @channelplans = Channelplan.all
     @userreports = Userreport.all
     @eligibilitylists = Eligibilitylist.all
+    @user = current_user.email
   end
 
   def new
     @channelplan = Channelplan.new
+    @user = current_user.email
   end
 
   def dashboard
@@ -61,7 +63,7 @@ class ChannelplansController < ApplicationController
   private
 
   def channelplan_params
-    params.require(:channelplan).permit(:channel, :name, :structure, :tone, :action)
+    params.require(:channelplan).permit(:channel, :name, :structure, :tone, :action, :assign)
   end
 
   private

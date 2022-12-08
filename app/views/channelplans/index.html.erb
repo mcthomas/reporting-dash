@@ -5,6 +5,7 @@
   <% if index %3 == 0 %>
     <div class="row">
     <%end %>
+        <% if @user == channelplan.assign%>
         <div class="<%= @col_classes[index %3 ] %>">
           <div class="<%= @card_classes[rand(0...@card_classes.length)] %>">
             <div class="card-content white-text">
@@ -30,6 +31,7 @@
             </div>
           </div>
         </div>
+    <%end %>
 
   <% if index %3 == 2 %>
     </div>
@@ -40,6 +42,7 @@
   <% if index %3 == 0 %>
     <div class="row">
     <%end %>
+            <% if @user == userreport.assign%>
         <div class="<%= @col_classes[index %3 ] %>">
           <div class="<%= @card_classes[rand(0...@card_classes.length)] %>" style="width: 400px">
             <div class="card-content white-text">
@@ -71,6 +74,7 @@
             </div>
           </div>
         </div>
+              <% end %>
   <% if index %3 == 2 %>
     </div>
   <%end %>
@@ -80,6 +84,7 @@
   <% if index %3 == 0 %>
     <div class="row">
     <%end %>
+                <% if @user == eligibilitylist.assign%>
         <div class="<%= @col_classes[index %3 ] %>">
           <div class="<%= @card_classes[rand(0...@card_classes.length)] %>" style="width: 400px">
             <div class="card-content white-text">
@@ -115,6 +120,7 @@
 </div>
 </div>
 </div>
+      <% end %>
 <% if index %3 == 2 %>
 </div>
 <%end %>

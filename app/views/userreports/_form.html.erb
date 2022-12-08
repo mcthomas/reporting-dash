@@ -41,6 +41,11 @@
                 <%= f.text_field :usersnotvalidated %>
               <label class="active" for="title">  <%= f.label :'users not validated' %></label>
             </div>
+                                          <div class="input-field col s12">
+                                <i class="material-icons prefix blue-text">assignment_ind</i>
+                                  <%= f.text_area :assign, value: @user, class: 'materialize-textarea' %>
+                                <label class="active" for="title"> <%= f.label :'assign to (leave blank to assign to yourself)' %></label>
+                              </div>
             </div>
             <div class="row">
               <div class="col s5"></div>

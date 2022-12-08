@@ -1,6 +1,6 @@
 class EligibilitylistsController < ApplicationController
   before_action :authenticate_user!
-  before_action :check_access, :only => [:new, :edit, :destroy, :import]
+  before_action :check_access, :only => [:new, :destroy, :import]
   
     def index
       set_ui_variables
@@ -10,6 +10,7 @@ class EligibilitylistsController < ApplicationController
   
     def new
       @eligibilitylist = Eligibilitylist.new
+      @user = current_user.email
     end
   
     def dashboard
@@ -66,7 +67,7 @@ class EligibilitylistsController < ApplicationController
     private
   
     def userreport_params
-      params.require(:eligibilitylist).permit(:title, :q1, :q2, :q3, :q4, :q5, :q6, :q7, :q8, :q9, :q10, :a1, :a2, :a3, :a4, :a5, :a6, :a7, :a8, :a9, :a10)
+      params.require(:eligibilitylist).permit(:title, :q1, :q2, :q3, :q4, :q5, :q6, :q7, :q8, :q9, :q10, :a1, :a2, :a3, :a4, :a5, :a6, :a7, :a8, :a9, :a10, :assign)
     end
   
     private

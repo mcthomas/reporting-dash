@@ -1,6 +1,6 @@
 class UserreportsController < ApplicationController
   before_action :authenticate_user!
-  before_action :check_access, :only => [:new, :edit, :destroy]
+  before_action :check_access, :only => [:new, :destroy]
   
     def index
       set_ui_variables
@@ -10,6 +10,7 @@ class UserreportsController < ApplicationController
   
     def new
       @userreport = Userreport.new
+      @user = current_user.email
     end
   
     def dashboard
@@ -57,7 +58,7 @@ class UserreportsController < ApplicationController
     private
   
     def userreport_params
-      params.require(:userreport).permit(:title, :users, :usersactive, :usersinactive, :usersvalidated, :usersnotvalidated)
+      params.require(:userreport).permit(:title, :users, :usersactive, :usersinactive, :usersvalidated, :usersnotvalidated, :assign)
     end
   
     private

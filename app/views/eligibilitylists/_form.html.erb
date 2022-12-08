@@ -132,6 +132,11 @@
                                   <label class="active" for="title">  <%= f.label :'true/false' %></label>
                                 </div>
                                 </div>
+                              <div class="input-field col s12">
+                                <i class="material-icons prefix blue-text">assignment_ind</i>
+                                  <%= f.text_area :assign, value: @user, class: 'materialize-textarea' %>
+                                <label class="active" for="title"> <%= f.label :'assign to (leave blank to assign to yourself)' %></label>
+                              </div>
             <div class="row">
               <div class="col s5"></div>
               <div class="col s5"><%= f.submit :'Save Elgibility List', class:"btn btn-default", class: 'btn-large light-blue'%></div>
