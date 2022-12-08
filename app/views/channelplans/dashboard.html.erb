@@ -1,4 +1,4 @@
-<body style="background-color:#C0C0C0;">
+<body style="background-image: linear-gradient(to right, #FFFFFF, #C0C0C0);">
 <div class="container">
 <table class="responsive-table highlight">
   <thead>
@@ -90,4 +90,7 @@
       <% end %>
       <br><br><br>
 </div>
+</div>
+<%= button_to "logout", destroy_user_session_path, method: :delete  %>
+</body>
 </body>

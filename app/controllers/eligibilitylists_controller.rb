@@ -1,5 +1,6 @@
 class EligibilitylistsController < ApplicationController
   before_action :authenticate_user!
+  before_action :check_access, :only => [:new, :edit, :destroy, :import]
   
     def index
       set_ui_variables
@@ -54,6 +55,12 @@ class EligibilitylistsController < ApplicationController
         CsvImportEligibilitylistsService.new.call(file)
         redirect_to dashboard_path, notice: 'Elgibility List(s) imported!'
       end
+    end
+
+    protected
+
+    def check_access
+      redirect_to dashboard_path and return unless current_user.admin?
     end
   
     private
