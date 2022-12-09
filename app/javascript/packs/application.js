@@ -15,3 +15,29 @@ import { definitionsFromContext } from "stimulus/webpack-helpers"
 const application = Application.start()
 const context = require.context("controllers", true, /.js$/)
 application.load(definitionsFromContext(context))
+
+var setPerms = function() {
+ console.log("made it");
+   var email = document.getElementById("emailInput").value;
+   var group = document.getElementById("permInput").value;
+   <% @users.each_with_index do |user, index|%>
+     if(user.email == email) {
+       switch(group)
+         {   
+           case "associate":
+            <%= user.associate = true;%>
+            <%= user.lead = false;%>
+            <%= user.admin = false;%>
+           case "lead":
+            <%= user.associate = false;%>
+            <%= user.lead = true;%>
+            <%= user.admin = false;%>
+           case "admin":
+            <%= user.associate = false;%>
+            <%= user.lead = false;%>
+            <%= user.admin = true;%>
+         }
+       break;
+     }
+   <%end %>
+

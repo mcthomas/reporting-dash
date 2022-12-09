@@ -34,15 +34,15 @@
                 <%= f.text_field :action %>
               <label class="active" for="title">  <%= f.label :'Desired action' %></label>
             </div>
-                                          <div class="input-field col s12">
-                                <i class="material-icons prefix blue-text">assignment_ind</i>
-                                  <% if @channelplan.assign != nil %>
-                                      <%= f.text_area :assign, value: @channelplan.assign, class: 'materialize-textarea' %>
-                                  <% else %>
-                                      <%= f.text_area :assign, value: @user, class: 'materialize-textarea' %>
-                                  <% end %>
-                                <label class="active" for="title"> <%= f.label :'assign to'%></label>
-                              </div>
+                    <div class="input-field col s12">
+          <i class="material-icons prefix blue-text">assignment_ind</i>
+            <% if @channelplan.assign != nil %>
+                <%= f.text_area :assign, value: @channelplan.assign, class: 'materialize-textarea' %>
+            <% else %>
+                <%= f.text_area :assign, value: @user, class: 'materialize-textarea' %>
+            <% end %>
+          <label class="active" for="title"> <%= f.label :'assign to'%></label>
+        </div>
             </div>
             <div class="row">
               <div class="col s5"></div>
