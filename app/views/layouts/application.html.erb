@@ -21,6 +21,10 @@
       <a href="<%= dashboard_url %>" class="btn-floating btn-large halfway-fab waves-effect waves-light purple darken-4">
         <i class="material-icons">edit</i>
       </a>
+      <% else %>
+            <a href="<%= manage_url %>" class="btn-floating btn-large halfway-fab waves-effect waves-light purple darken-4">
+        <i class="material-icons">supervised_user_circle</i>
+      </a>
         <% end %>
     </div>
   </nav>

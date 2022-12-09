@@ -1,7 +1,8 @@
 class ChannelplansController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :check_access, :only => [:new, :destroy]
+  before_action :check_admin, :only => [:new, :destroy]
+  before_action :check_lead, :only => [:edit]
   
   def index
     set_ui_variables
@@ -20,6 +21,7 @@ class ChannelplansController < ApplicationController
     @channelplans = Channelplan.all
     @userreports = Userreport.all
     @eligibilitylists = Eligibilitylist.all
+    @users = User.all
   end
 
   def show
@@ -58,8 +60,12 @@ class ChannelplansController < ApplicationController
 
   protected
 
-  def check_access
+  def check_admin
     redirect_to dashboard_path and return unless current_user.admin?
+  end
+
+  def check_lead
+    redirect_to dashboard_path and return unless (current_user.admin? or current_user.lead?)
   end
 
   private
