@@ -61,11 +61,11 @@ class ChannelplansController < ApplicationController
   protected
 
   def check_admin
-    redirect_to dashboard_path and return unless current_user.admin?
+    return redirect_to dashboard_path, notice: 'Insufficient permission' unless current_user.admin?
   end
 
   def check_lead
-    redirect_to dashboard_path and return unless (current_user.admin? or current_user.lead?)
+    return redirect_to dashboard_path, notice: 'Insufficient permission' unless (current_user.admin? or current_user.lead?)
   end
 
   private

@@ -53,7 +53,7 @@ class EligibilitylistsController < ApplicationController
     def import
       file = params[:file]
       if file
-        return redirect_to dashboard_path, warning: 'File format must be .csv' unless file.content_type == 'text/csv'
+        return redirect_to dashboard_path, notice: 'File format must be .csv' unless file.content_type == 'text/csv'
         CsvImportEligibilitylistsService.new.call(file)
         redirect_to root_path, pass: 'Elgibility List(s) imported!'
       end
@@ -62,11 +62,11 @@ class EligibilitylistsController < ApplicationController
     protected
 
     def check_admin
-      redirect_to dashboard_path and return unless current_user.admin?
+      return redirect_to dashboard_path, notice: 'Insufficient permission' unless current_user.admin?
     end
 
     def check_lead
-      redirect_to dashboard_path and return unless (current_user.admin? or current_user.lead?)
+      return redirect_to dashboard_path, notice: 'Insufficient permission' unless (current_user.admin? or current_user.lead?)
     end
   
     private
