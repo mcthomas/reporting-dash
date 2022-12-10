@@ -44,7 +44,7 @@ class UserreportsController < ApplicationController
     def create
       @userreport = Userreport.new(userreport_params)
       if @userreport.save
-        redirect_to channelplans_path
+        redirect_to root_path
       else
         render 'new'
       end

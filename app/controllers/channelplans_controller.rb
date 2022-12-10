@@ -52,7 +52,7 @@ class ChannelplansController < ApplicationController
   def create
     @channelplan = Channelplan.new(channelplan_params)
     if @channelplan.save
-      redirect_to channelplans_path
+      redirect_to root_path
     else
       render 'new'
     end

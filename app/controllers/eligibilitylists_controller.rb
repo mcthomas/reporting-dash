@@ -44,7 +44,7 @@ class EligibilitylistsController < ApplicationController
     def create
       @eligibilitylist = Eligibilitylist.new(userreport_params)
       if @eligibilitylist.save
-        redirect_to channelplans_path
+        redirect_to root_path
       else
         render 'new'
       end
