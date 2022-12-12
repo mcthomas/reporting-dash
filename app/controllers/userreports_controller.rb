@@ -53,11 +53,11 @@ class UserreportsController < ApplicationController
     protected
     
     def check_admin
-      return redirect_to dashboard_path, notice: 'Insufficient permission' unless current_user.admin?
+      return redirect_to dashboard_path, error: 'Insufficient permission!' unless current_user.admin?
     end
 
     def check_lead
-      return redirect_to dashboard_path, notice: 'Insufficient permission' unless (current_user.admin? or current_user.lead?)
+      return redirect_to dashboard_path, error: 'Insufficient permission!' unless (current_user.admin? or current_user.lead?)
     end
   
     private

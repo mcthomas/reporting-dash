@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     before_action :authenticate_user!
-    before_action :check_admin, :only => [:adminconsole]
+    before_action :check_admin, :only => [:adminconsole, :edit, :destroy, :update]
 
     def adminconsole
         @users = User.all
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
     protected 
     
     def check_admin
-        redirect_to dashboard_path and return unless current_user.admin?
+        return redirect_to dashboard_path, error: 'Insufficient permission!' unless current_user.admin?
     end
 
     private

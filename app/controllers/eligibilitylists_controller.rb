@@ -53,26 +53,26 @@ class EligibilitylistsController < ApplicationController
     def import
       file = params[:file]
       if file
-        return redirect_to dashboard_path, notice: 'File format must be .csv' unless file.content_type == 'text/csv'
+        return redirect_to dashboard_path, error: 'File format must be .csv' unless file.content_type == 'text/csv'
         CsvImportEligibilitylistsService.new.call(file)
-        redirect_to root_path, pass: 'Elgibility List(s) imported!'
+        redirect_to dashboard_path, notice: 'Unassigned elgibility list(s) imported!'
       end
     end
 
     protected
 
     def check_admin
-      return redirect_to dashboard_path, notice: 'Insufficient permission' unless current_user.admin?
+      return redirect_to dashboard_path, error: 'Insufficient permission!' unless current_user.admin?
     end
 
     def check_lead
-      return redirect_to dashboard_path, notice: 'Insufficient permission' unless (current_user.admin? or current_user.lead?)
+      return redirect_to dashboard_path, error: 'Insufficient permission!' unless (current_user.admin? or current_user.lead?)
     end
   
     private
   
     def userreport_params
-      params.require(:eligibilitylist).permit(:title, :assign, :q1, :q2, :q3, :q4, :q5, :q6, :q7, :q8, :q9, :q10, :a1, :a2, :a3, :a4, :a5, :a6, :a7, :a8, :a9, :a10)
+      params.require(:eligibilitylist).permit(:title, :q1, :q2, :q3, :q4, :q5, :q6, :q7, :q8, :q9, :q10, :a1, :a2, :a3, :a4, :a5, :a6, :a7, :a8, :a9, :a10)
     end
   
     private

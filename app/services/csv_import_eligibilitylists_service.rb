@@ -6,7 +6,6 @@ class CsvImportEligibilitylistsService < ApplicationController
      csv.each do |row|
        eligibilitylist_hash = {}
        eligibilitylist_hash[:title] = row['Title']
-       eligibilitylist_hash[:assign] = row['Assign']
        eligibilitylist_hash[:q1] = row['Scenario 1']
        eligibilitylist_hash[:a1] = row['Response 1']
        eligibilitylist_hash[:q2] = row['Scenario 2']
