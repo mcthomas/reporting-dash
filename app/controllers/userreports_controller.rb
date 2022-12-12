@@ -6,7 +6,6 @@ class UserreportsController < ApplicationController
     def index
       set_ui_variables
       @userreports = Userreport.all
-  
     end
   
     def new
@@ -76,4 +75,3 @@ class UserreportsController < ApplicationController
     end
   
   end
-  

@@ -1,104 +1,123 @@
 <body style="background-image: linear-gradient(to right, #FFFFFF, #C0C0C0);">
-<p style="color: red; margin: 40px"><%= error %></p>
-<p style="color: green; margin: 40px"><%= notice %></p>
-<div class="container">
-<table class="responsive-table highlight">
-  <thead>
-  <tr>
-    <th>Channel</th>
-    <th>Name</th>
-    <th>Structure</th>
-    <th>Tone</th>
-    <th>Desired Action</th>
-        <th>Assigned To</th>
-  </tr>
-  </thead>
-  <h5><u class="purple-text">Channel Plans</u></h5>
-  <tbody>
-  <% @channelplans.each_with_index do |channelplan, index|%>
-  <tr>
-    <td><span class="truncate" style="display: inline-block; width: 108px;"><%=channelplan.channel %></span></td>
-    <td ><span class="truncate" style="display: inline-block; width: 108px;"><%=channelplan.name %></span></td>
-    <td ><span class="truncate" style="display: inline-block; width: 108px;"><%=channelplan.structure %></span></td>
-    <td ><span class="truncate" style="display: inline-block; width: 108px;"><%=channelplan.tone %></span></td>
-    <td ><span class="truncate" style="display: inline-block; width: 108px;"><%=channelplan.action %></span></td>
-        <td ><span class="truncate" style="display: inline-block; width: 108px;"><%=channelplan.assign %></span></td>
-    <td><%= link_to "edit", edit_channelplan_path(channelplan), style:'float: right;', class:'btn btn-small yellow darken-2'%></td>
-    <td><%= button_to "delete",channelplan_path(channelplan), style:'float: right;', method: :delete, form: {data: {turbo_confirm: "Are you sure you want to delete this channel plan?"}}, class:"btn btn-small red" %></td>
-  </tr>
-    <%end %>
-  </tbody>
-</table>
-<br>
-<a href="<%= new_channelplan_url %>" class="btn-small waves-effect waves-light green darken-1">
-        <i class="material-icons">add</i>
-      </a>
-<br><br><br>
-<table class="responsive-table highlight">
-  <thead>
-  <tr>
-    <th>Title</th>
-    <th>Users</th>
-    <th>Users Active</th>
-    <th>Users Inactive</th>
-    <th>Users Validated</th>
-    <th>Users Not Validated</th>
-    <th>Assigned To</th>
-  </tr>
-  </thead>
-  <h5><u class="purple-text">User Reports</u></h5>
-  <tbody>
-<% @userreports.each_with_index do |userreport, index|%>
-  <tr>
-    <td><span class="truncate" style="display: inline-block; width: 93px;"><%=userreport.title %></span></td>
-    <td><span class="truncate" style="display: inline-block; width: 93px;"><%=userreport.users %></span></td>
-    <td ><span class="truncate" style="display: inline-block; width: 93px;"><%=userreport.usersactive %></span></td>
-    <td ><span class="truncate" style="display: inline-block; width: 93px;"><%=userreport.usersinactive %></span></td>
-    <td ><span class="truncate" style="display: inline-block; width: 93px;"><%=userreport.usersvalidated %></span></td>
-    <td ><span class="truncate" style="display: inline-block; width: 93px;"><%=userreport.usersnotvalidated %></span></td>
-    <td ><span class="truncate" style="display: inline-block; width: 93px;"><%=userreport.assign %></span></td>
-    <td><%= link_to "edit", edit_userreport_path(userreport), style:'float: right;', class:'btn btn-small yellow darken-2' %></td>
-    <td><%= button_to "delete",userreport_path(userreport), style:'float: right;', method: :delete, form: {data: {turbo_confirm: "Are you sure you want to delete this channel plan?"}}, class:"btn btn-small red" %></td>
-  </tr>
-  <%end %>
-  </tbody>
-</table>
-<br>
-<a href="<%= new_userreport_url %>" class="btn-small waves-effect waves-light green darken-1">
-        <i class="material-icons">add</i>
-      </a>
-      <br><br><br>
-      <table class="responsive-table highlight">
-  <thead>
-  <tr>
-    <th>Title</th>
-        <th>Assigned To</th>
-  </tr>
-  </thead>
-  <h5><u class="purple-text">Eligibility Lists</u></h5>
-  <tbody>
-<% @eligibilitylists.each_with_index do |eligibilitylist, index|%>
-  <tr>
-    <td><span class="truncate" style="display: inline-block; width: 300px;"><%=eligibilitylist.title %></span></td>
-        <td ><span class="truncate" style="display: inline-block; width: 350px;"><%=eligibilitylist.assign %></span></td>
-    <td><%= link_to "edit", edit_eligibilitylist_path(eligibilitylist), style:'float: right;', class:'btn btn-small yellow darken-2' %></td>
-    <td><%= button_to "delete",eligibilitylist_path(eligibilitylist), style:'float: right;', method: :delete, form: {data: {turbo_confirm: "Are you sure you want to delete this channel plan?"}}, class:"btn btn-small red" %></td>
-  </tr>
-  <%end %>
-  </tbody>
-</table>
-<br>
-<a href="<%= new_eligibilitylist_url %>" class="btn-small waves-effect waves-light green darken-1">
-        <i class="material-icons">add</i>
-      </a>
-      <br><br>
-      <%= form_with url: import_eligibilitylists_path, method: :post do |form| %>
-        <%= form.file_field :file, accept: ".csv" %>
-        <%= form.button "import eligibility list(s)", class:'btn btn-small blue darken-2' %>
-      <% end %>
-      <br><br><br>
-</div>
-</div>
-<%= button_to "logout", destroy_user_session_path, method: :delete, class:'btn btn-small red darken-3', style:'position: fixed; bottom: 10px; left: 10px'  %>
+  <p style="color: red; margin: 40px"><%= error %></p>
+  <p style="color: green; margin: 40px"><%= notice %></p>
+  <div class="container">
+    <table class="responsive-table highlight">
+      <thead>
+        <tr>
+          <th>Channel</th>
+          <th>Name</th>
+          <th>Structure</th>
+          <th>Tone</th>
+          <th>Desired Action</th>
+          <th>Assigned To</th>
+        </tr>
+      </thead>
+      <h5><u class="purple-text">Channel Plans</u></h5>
+      <tbody>
+        <% @channelplans.each_with_index do |channelplan, index|%>
+        <tr>
+          <td><span class="truncate" style="display: inline-block; width: 108px;"><%=channelplan.channel %></span></td>
+          <td><span class="truncate" style="display: inline-block; width: 108px;"><%=channelplan.name %></span></td>
+          <td><span class="truncate" style="display: inline-block; width: 108px;"><%=channelplan.structure %></span>
+          </td>
+          <td><span class="truncate" style="display: inline-block; width: 108px;"><%=channelplan.tone %></span></td>
+          <td><span class="truncate" style="display: inline-block; width: 108px;"><%=channelplan.action %></span></td>
+          <td><span class="truncate" style="display: inline-block; width: 108px;"><%=channelplan.assign %></span></td>
+          <td>
+            <%= link_to "edit", edit_channelplan_path(channelplan), style:'float: right;', class:'btn btn-small yellow darken-2'%>
+          </td>
+          <td>
+            <%= button_to "delete",channelplan_path(channelplan), style:'float: right;', method: :delete, form: {data: {turbo_confirm: "Are you sure you want to delete this channel plan?"}}, class:"btn btn-small red" %>
+          </td>
+        </tr>
+        <%end %>
+      </tbody>
+    </table>
+    <br>
+    <a href="<%= new_channelplan_url %>" class="btn-small waves-effect waves-light green darken-1">
+      <i class="material-icons">add</i>
+    </a>
+    <br><br><br>
+    <table class="responsive-table highlight">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Users</th>
+          <th>Users Active</th>
+          <th>Users Inactive</th>
+          <th>Users Validated</th>
+          <th>Users Not Validated</th>
+          <th>Assigned To</th>
+        </tr>
+      </thead>
+      <h5><u class="purple-text">User Reports</u></h5>
+      <tbody>
+        <% @userreports.each_with_index do |userreport, index|%>
+        <tr>
+          <td><span class="truncate" style="display: inline-block; width: 93px;"><%=userreport.title %></span></td>
+          <td><span class="truncate" style="display: inline-block; width: 93px;"><%=userreport.users %></span></td>
+          <td><span class="truncate" style="display: inline-block; width: 93px;"><%=userreport.usersactive %></span>
+          </td>
+          <td><span class="truncate" style="display: inline-block; width: 93px;"><%=userreport.usersinactive %></span>
+          </td>
+          <td><span class="truncate" style="display: inline-block; width: 93px;"><%=userreport.usersvalidated %></span>
+          </td>
+          <td><span class="truncate"
+              style="display: inline-block; width: 93px;"><%=userreport.usersnotvalidated %></span></td>
+          <td><span class="truncate" style="display: inline-block; width: 93px;"><%=userreport.assign %></span></td>
+          <td>
+            <%= link_to "edit", edit_userreport_path(userreport), style:'float: right;', class:'btn btn-small yellow darken-2' %>
+          </td>
+          <td>
+            <%= button_to "delete",userreport_path(userreport), style:'float: right;', method: :delete, form: {data: {turbo_confirm: "Are you sure you want to delete this channel plan?"}}, class:"btn btn-small red" %>
+          </td>
+        </tr>
+        <%end %>
+      </tbody>
+    </table>
+    <br>
+    <a href="<%= new_userreport_url %>" class="btn-small waves-effect waves-light green darken-1">
+      <i class="material-icons">add</i>
+    </a>
+    <br><br><br>
+    <table class="responsive-table highlight">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Assigned To</th>
+        </tr>
+      </thead>
+      <h5><u class="purple-text">Eligibility Lists</u></h5>
+      <tbody>
+        <% @eligibilitylists.each_with_index do |eligibilitylist, index|%>
+        <tr>
+          <td><span class="truncate" style="display: inline-block; width: 300px;"><%=eligibilitylist.title %></span>
+          </td>
+          <td><span class="truncate" style="display: inline-block; width: 350px;"><%=eligibilitylist.assign %></span>
+          </td>
+          <td>
+            <%= link_to "edit", edit_eligibilitylist_path(eligibilitylist), style:'float: right;', class:'btn btn-small yellow darken-2' %>
+          </td>
+          <td>
+            <%= button_to "delete",eligibilitylist_path(eligibilitylist), style:'float: right;', method: :delete, form: {data: {turbo_confirm: "Are you sure you want to delete this channel plan?"}}, class:"btn btn-small red" %>
+          </td>
+        </tr>
+        <%end %>
+      </tbody>
+    </table>
+    <br>
+    <a href="<%= new_eligibilitylist_url %>" class="btn-small waves-effect waves-light green darken-1">
+      <i class="material-icons">add</i>
+    </a>
+    <br><br>
+    <%= form_with url: import_eligibilitylists_path, method: :post do |form| %>
+    <%= form.file_field :file, accept: ".csv" %>
+    <%= form.button "import eligibility list(s)", class:'btn btn-small blue darken-2' %>
+    <% end %>
+    <br><br><br>
+  </div>
+  </div>
+  <%= button_to "logout", destroy_user_session_path, method: :delete, class:'btn btn-small red darken-3', style:'position: fixed; bottom: 10px; left: 10px'  %>
 </body>
 </body>

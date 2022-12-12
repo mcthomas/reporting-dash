@@ -1,46 +1,47 @@
 <body style="background-image: linear-gradient(to right, #FFFFFF, #C0C0C0);">
-<div class="container">
-  <%= form_for @user do |f| %>
+  <div class="container">
+    <%= form_for @user do |f| %>
     <div class="row">
-    <div class="col s12">
-      <div class="card grey lighten-3">
-        <div class="card-content white-text">
-          <div class="row">
-            <div class="input-field col s6">
-              <stong><%= f.text_field :email, :value => @user.email, :readonly => true%></strong>
-              <label class="active" for="email"> 
-            </div>
+      <div class="col s12">
+        <div class="card grey lighten-3">
+          <div class="card-content white-text">
+            <div class="row">
+              <div class="input-field col s6">
+                <stong><%= f.text_field :email, :value => @user.email, :readonly => true%></strong>
+                  <label class="active" for="email">
               </div>
-              <div class="row">
+            </div>
+            <div class="row">
               <div class="input-field col s4">
                 <i class="material-icons prefix green-text">vpn_key</i>
                 <%= f.text_field :associate %>
-                <label class="active" for="associate">  <%= f.label :associate %></label>
+                <label class="active" for="associate"> <%= f.label :associate %></label>
               </div>
-                <div class="input-field col s4">
+              <div class="input-field col s4">
                 <i class="material-icons prefix orange-text">vpn_key</i>
                 <%= f.text_field :lead %>
-              <label class="active" for="lead">  <%= f.label :lead %></label>
+                <label class="active" for="lead"> <%= f.label :lead %></label>
               </div>
-                <div class="input-field col s4">
+              <div class="input-field col s4">
                 <i class="material-icons prefix red-text">vpn_key</i>
                 <%= f.text_field :admin %>
-              <label class="active" for="admin">  <%= f.label :admin %></label>
-            </div>
+                <label class="active" for="admin"> <%= f.label :admin %></label>
+              </div>
             </div>
             <div class="row">
               <div class="col s5"></div>
-              <div class="col s5"><%= f.submit :'Save User', class:"btn btn-default", class: 'btn-large light-blue'%></div>
+              <div class="col s5"><%= f.submit :'Save User', class:"btn btn-default", class: 'btn-large light-blue'%>
+              </div>
               <div class="col s4"></div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    </div>
+  </div>
   <% end %>
-</div>
-</div>
-<%= button_to "logout", destroy_user_session_path, method: :delete, class:'btn btn-small red darken-3', style:'position: fixed; bottom: 10px; left: 10px'  %>
+  </div>
+  </div>
+  <%= button_to "logout", destroy_user_session_path, method: :delete, class:'btn btn-small red darken-3', style:'position: fixed; bottom: 10px; left: 10px'  %>
 </body>
 </body>
