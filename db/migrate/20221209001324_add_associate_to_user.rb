@@ -1,5 +1,5 @@
 class AddAssociateToUser < ActiveRecord::Migration[7.0]
   def change
-    change_column :users, :associate, :boolean, default: true
+    add_column :users, :associate, :boolean, default: true
   end
 end

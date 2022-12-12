@@ -6,7 +6,6 @@ class EligibilitylistsController < ApplicationController
     def index
       set_ui_variables
       @eligibilitylists = Eligibilitylist.all
-  
     end
   
     def new
@@ -55,8 +54,10 @@ class EligibilitylistsController < ApplicationController
       if file
         return redirect_to dashboard_path, error: 'File format must be .csv' unless file.content_type == 'text/csv'
         CsvImportEligibilitylistsService.new.call(file)
-        redirect_to dashboard_path, notice: 'Unassigned elgibility list(s) imported!'
+        return redirect_to dashboard_path, success: 'Unassigned elgibility list(s) imported!'
       end
+      rescue => e
+        return redirect_to dashboard_path, error: 'Parsing error.' 
     end
 
     protected
@@ -72,7 +73,7 @@ class EligibilitylistsController < ApplicationController
     private
   
     def userreport_params
-      params.require(:eligibilitylist).permit(:title, :q1, :q2, :q3, :q4, :q5, :q6, :q7, :q8, :q9, :q10, :a1, :a2, :a3, :a4, :a5, :a6, :a7, :a8, :a9, :a10)
+      params.require(:eligibilitylist).permit(:title, :assign, :q1, :q2, :q3, :q4, :q5, :q6, :q7, :q8, :q9, :q10, :a1, :a2, :a3, :a4, :a5, :a6, :a7, :a8, :a9, :a10)
     end
   
     private

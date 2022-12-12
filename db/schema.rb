@@ -25,14 +25,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_09_001324) do
     t.string "assign"
   end
 
-  create_table "elgibilitylists", force: :cascade do |t|
-    t.string "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "entry_id"
-    t.index ["entry_id"], name: "index_elgibilitylists_on_entry_id"
-  end
-
   create_table "eligibilitylists", force: :cascade do |t|
     t.string "title"
     t.string "q1"
@@ -59,16 +51,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_09_001324) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "assign"
-  end
-
-  create_table "entries", force: :cascade do |t|
-    t.string "scenario"
-    t.boolean "check"
-    t.string "date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "elgibilitylist_id"
-    t.index ["elgibilitylist_id"], name: "index_entries_on_elgibilitylist_id"
   end
 
   create_table "userreports", force: :cascade do |t|
@@ -99,5 +81,4 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_09_001324) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "elgibilitylists", "entries"
 end
