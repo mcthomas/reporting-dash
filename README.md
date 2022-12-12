@@ -116,10 +116,10 @@ Admin User
     - `@user.admin = true`
     - `@user.save`
     - `exit`
-- start the rails server again: `docker compose up`
+  - start the rails server again: `docker compose up`
 - access the application: http://localhost:3000
 
-*Now you can logout, create new accounts, switch between them, and know that your admin account which you created first has the ability to elevate any other accounts you create.  Unless you demote all accounts below the admin group.*
+*Now you can logout, create new accounts (using real or fake email addresses), switch between them, and know that your admin account which you created first has the ability to elevate any other accounts you create.  Unless you demote all accounts below the admin group.*
 
 ## Implementation & Design Details
 
