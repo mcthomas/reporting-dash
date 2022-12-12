@@ -1,4 +1,4 @@
-<img src="rd-logo" width="200"/>
+<img src="rd-logo.png" width="200"/>
 
 # Reporting Dashboard
 
