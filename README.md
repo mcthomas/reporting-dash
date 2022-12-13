@@ -61,7 +61,7 @@ Admin User
   
   → permission-dependent option to create a business object instance via individual "+" buttons
   
-  → permission-dependent option to upload a new elgibility list instance via lower "Choose File" and "IMPORT ELGIBILITY LIST(S)" buttons
+  → permission-dependent option to upload a new elgibility list instance via lower "Choose File" and "IMPORT ELGIBILITY LIST(S)" buttons (sample .csv file included)
   
   → permission-dependent option to enter the user administration page (/manage-users) via floating upper-right button 
   
@@ -100,6 +100,7 @@ Admin User
 - launch Docker so that it is running
 - from your terminal emulator:
   - Clone this repository, and stay on the release branch: `git clone git@github.com:mcthomas/reporting-dash.git`
+  - Enter the repository directory: `cd reporting-dash`
   - Build a container environment with all system and project dependencies required to serve the app: `docker compose build`
   - Create the database inside the container: `docker-compose run web rake db:create`
   - Run the database migrations inside the container: `docker-compose run web rake db:migrate` 
@@ -116,10 +117,10 @@ Admin User
     - `@user.admin = true`
     - `@user.save`
     - `exit`
-- start the rails server again: `docker compose up`
+  - start the rails server again: `docker compose up`
 - access the application: http://localhost:3000
 
-*Now you can logout, create new accounts, switch between them, and know that your admin account which you created first has the ability to elevate any other accounts you create.  Unless you demote all accounts below the admin group.*
+*Now you can logout, create new accounts (using real or fake email addresses), switch between them, and know that your admin account which you created first has the ability to elevate any other accounts you create.  Unless you demote all accounts below the admin group.*
 
 ## Implementation & Design Details
 
@@ -149,6 +150,7 @@ Admin User
 - css colors are assigned at random from a set pool to stylize the dashboard documents, to make them easy to differentiate
 - basic form template views are used for consistency and easy data input for creating and editing entity instances
 - Materialize CSS is used for consistent asset appearance and to streamline the process of building this prototype
+- Google Charts with on-hover styling effects and sorting functions
 
 ### Paradigms
 
@@ -168,7 +170,7 @@ Admin User
 
 ### Demo
 
-- [Screen recording of user flows, including .csv import for elgibility lists]()
+- [Screen recording of user flows](https://drive.google.com/file/d/124yuoQo--afVKSKyvT04StSKzXWH_2Se/view?usp=sharing)
 
 ## Ideas for Improvement
 
